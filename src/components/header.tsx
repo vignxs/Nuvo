@@ -32,7 +32,7 @@ export default function Header() {
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <motion.a
-              href="#"
+              href="/"
               className={`text-[${colors.primary}] font-medium`}
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -40,7 +40,15 @@ export default function Header() {
               HOME
             </motion.a>
             <motion.a
-              href="#"
+              href="/shop"
+              className={`text-gray-600 hover:text-[${colors.primary}] font-medium`}
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              SHOP
+            </motion.a>
+            <motion.a
+              href="/fish"
               className={`text-gray-600 hover:text-[${colors.primary}] font-medium`}
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -48,7 +56,7 @@ export default function Header() {
               FISH
             </motion.a>
             <motion.a
-              href="#"
+              href="/birds"
               className={`text-gray-600 hover:text-[${colors.primary}] font-medium`}
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -56,7 +64,7 @@ export default function Header() {
               BIRDS
             </motion.a>
             <motion.a
-              href="#"
+              href="/accessories"
               className={`text-gray-600 hover:text-[${colors.primary}] font-medium`}
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
