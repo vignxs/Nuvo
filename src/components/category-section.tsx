@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { getProductsByType } from "@/constants/category";
 import { colors } from "@/constants/colors";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 interface CategorySectionProps {
   title: string;
@@ -21,7 +22,7 @@ export default function CategorySection({
 }: CategorySectionProps) {
   // Sample products for each category
   const products = getProductsByType(type);
-
+  const navigate = useNavigate()
 
   return (
     <section className={`py-12 ${bgColor}`}>
@@ -79,6 +80,7 @@ export default function CategorySection({
         >
           <Button
             className={`bg-[${colors.primary}] hover:bg-[${colors.primaryDark}] px-8`}
+            onClick={() => navigate("/shop")}
           >
             View All {title}
           </Button>

@@ -10,8 +10,13 @@ import { colors } from "@/constants/colors";
 import { motion } from "framer-motion";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+
+  const navigate = useNavigate();
+
+
   return (
     <div
       className={`min-h-screen bg-gradient-to-b from-[#e6f7ff] to-[#f0f9ff]`}
@@ -63,12 +68,14 @@ export default function Home() {
                 <Button
                 variant={'default'}
                   className={`bg-[#315f93] border-[#315f93] hover:bg-[#1e3a5f] text-white rounded-full px-8 py-6`}
+                  onClick={() => navigate("/shop")}
                 >
                   SHOP NOW
                 </Button>
                 <Button
                   variant="outline"
                   className={`border-[#315f93] text-[#315f93] hover:bg-[#e6f7ff] rounded-full px-8 py-6`}
+                  onClick={() => navigate("/shop")}
                 >
                   LEARN MORE
                 </Button>
