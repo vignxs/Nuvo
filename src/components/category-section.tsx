@@ -1,37 +1,27 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { colors } from "@/constants/colors"
-import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button";
+import { getProductsByType } from "@/constants/category";
+import { colors } from "@/constants/colors";
+import { motion } from "framer-motion";
 
 interface CategorySectionProps {
-  title: string
-  description: string
-  bgColor: string
+  title: string;
+  description: string;
+  bgColor: string;
+  type: string;
 }
 
-export default function CategorySection({ title, description, bgColor }: CategorySectionProps) {
+
+export default function CategorySection({
+  title,
+  description,
+  bgColor,
+  type,
+}: CategorySectionProps) {
   // Sample products for each category
-  const products = [
-    {
-      id: 1,
-      name: "Product 1",
-      price: "$24.99",
-      image: "/placeholder.svg?height=200&width=200",
-    },
-    {
-      id: 2,
-      name: "Product 2",
-      price: "$19.99",
-      image: "/placeholder.svg?height=200&width=200",
-    },
-    {
-      id: 3,
-      name: "Product 3",
-      price: "$29.99",
-      image: "/placeholder.svg?height=200&width=200",
-    },
-  ]
+  const products = getProductsByType(type);
+
 
   return (
     <section className={`py-12 ${bgColor}`}>
@@ -43,7 +33,9 @@ export default function CategorySection({ title, description, bgColor }: Categor
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className={`text-3xl font-bold text-[${colors.primary}] mb-2`}>{title}</h2>
+          <h2 className={`text-3xl font-bold text-[${colors.primary}] mb-2`}>
+            {title}
+          </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">{description}</p>
         </motion.div>
 
@@ -58,7 +50,9 @@ export default function CategorySection({ title, description, bgColor }: Categor
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: -10 }}
             >
-              <div className={`relative aspect-square rounded-lg overflow-hidden bg-[${colors.backgroundLight}]`}>
+              <div
+                className={`relative aspect-square rounded-lg overflow-hidden bg-[${colors.backgroundLight}]`}
+              >
                 <img
                   src={product.image || "/placeholder.svg"}
                   alt={product.name}
@@ -68,7 +62,9 @@ export default function CategorySection({ title, description, bgColor }: Categor
 
               <div className="mt-4 text-center">
                 <h3 className="text-lg font-medium">{product.name}</h3>
-                <p className={`text-[${colors.primary}] font-bold`}>{product.price}</p>
+                <p className={`text-[${colors.primary}] font-bold`}>
+                  {product.price}
+                </p>
               </div>
             </motion.div>
           ))}
@@ -81,10 +77,13 @@ export default function CategorySection({ title, description, bgColor }: Categor
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <Button className={`bg-[${colors.primary}] hover:bg-[${colors.primaryDark}] px-8`}>View All {title}</Button>
+          <Button
+            className={`bg-[${colors.primary}] hover:bg-[${colors.primaryDark}] px-8`}
+          >
+            View All {title}
+          </Button>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-

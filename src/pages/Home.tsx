@@ -1,19 +1,21 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Facebook, Instagram, Twitter } from "lucide-react"
-import FeaturedProducts from "@/components/featured-products"
-import CategorySection from "@/components/category-section"
-import TestimonialSection from "@/components/testimonial-section"
-import NewsletterSection from "@/components/newsletter-section"
-import { colors } from "@/constants/colors"
-import { motion } from "framer-motion"
-import Header from "@/components/header"
-import Footer from "@/components/footer"
+import { Button } from "@/components/ui/button";
+import { Facebook, Instagram, Twitter } from "lucide-react";
+import FeaturedProducts from "@/components/featured-products";
+import CategorySection from "@/components/category-section";
+import TestimonialSection from "@/components/testimonial-section";
+import NewsletterSection from "@/components/newsletter-section";
+import { colors } from "@/constants/colors";
+import { motion } from "framer-motion";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
-    <div className={`min-h-screen bg-gradient-to-b from-[${colors.background}] to-[${colors.backgroundLight}]`}>
+    <div
+      className={`min-h-screen bg-gradient-to-b from-[#e6f7ff] to-[#f0f9ff]`}
+    >
       {/* Header */}
       <Header />
 
@@ -30,7 +32,7 @@ export default function Home() {
             >
               <div className="space-y-2">
                 <motion.h2
-                  className={`text-5xl font-bold text-[${colors.primary}] leading-tight`}
+                  className={`text-5xl font-bold text-[#315f93] leading-tight`}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.5 }}
@@ -45,8 +47,10 @@ export default function Home() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.5 }}
                 >
-                  Discover premium supplies for your aquatic and avian companions. From vibrant fish tanks to cozy bird
-                  cages, we provide everything your pets need to thrive in a loving environment.
+                  Discover premium supplies for your aquatic and avian
+                  companions. From vibrant fish tanks to cozy bird cages, we
+                  provide everything your pets need to thrive in a loving
+                  environment.
                 </motion.p>
               </div>
 
@@ -57,13 +61,14 @@ export default function Home() {
                 transition={{ delay: 0.6, duration: 0.5 }}
               >
                 <Button
-                  className={`bg-[${colors.primary}] hover:bg-[${colors.primaryDark}] text-white rounded-full px-8 py-6`}
+                variant={'default'}
+                  className={`bg-[#315f93] border-[#315f93] hover:bg-[#1e3a5f] text-white rounded-full px-8 py-6`}
                 >
                   SHOP NOW
                 </Button>
                 <Button
                   variant="outline"
-                  className={`border-[${colors.primary}] text-[${colors.primary}] hover:bg-[${colors.background}] rounded-full px-8 py-6`}
+                  className={`border-[#315f93] text-[#315f93] hover:bg-[#e6f7ff] rounded-full px-8 py-6`}
                 >
                   LEARN MORE
                 </Button>
@@ -77,21 +82,21 @@ export default function Home() {
               >
                 <motion.a
                   href="#"
-                  className={`bg-[${colors.primary}] p-2 rounded-full text-white`}
+                  className={`bg-[#315f93] p-2 rounded-full text-white`}
                   whileHover={{ scale: 1.2, rotate: 5 }}
                 >
                   <Facebook size={20} />
                 </motion.a>
                 <motion.a
                   href="#"
-                  className={`bg-[${colors.primary}] p-2 rounded-full text-white`}
+                  className={`bg-[#315f93] p-2 rounded-full text-white`}
                   whileHover={{ scale: 1.2, rotate: 5 }}
                 >
                   <Instagram size={20} />
                 </motion.a>
                 <motion.a
                   href="#"
-                  className={`bg-[${colors.primary}] p-2 rounded-full text-white`}
+                  className={`bg-[#315f93] p-2 rounded-full text-white`}
                   whileHover={{ scale: 1.2, rotate: 5 }}
                 >
                   <Twitter size={20} />
@@ -107,7 +112,7 @@ export default function Home() {
               transition={{ duration: 0.5 }}
             >
               <motion.div
-                className={`relative w-full max-w-md aspect-square rounded-full overflow-hidden bg-[${colors.background}] p-8`}
+                className={`relative w-full max-w-md aspect-square rounded-full overflow-hidden bg-[#e6f7ff] p-8`}
                 animate={{
                   y: [0, -10, 0],
                 }}
@@ -139,7 +144,9 @@ export default function Home() {
                   ease: "easeInOut",
                 }}
               >
-                <div className={`w-6 h-6 rounded-full bg-blue-400 opacity-80`}></div>
+                <div
+                  className={`w-6 h-6 rounded-full bg-blue-400 opacity-80`}
+                ></div>
               </motion.div>
               <motion.div
                 className="absolute right-1/4 bottom-1/4 z-10"
@@ -154,7 +161,9 @@ export default function Home() {
                   delay: 0.5,
                 }}
               >
-                <div className={`w-8 h-8 rounded-full bg-blue-400 opacity-50`}></div>
+                <div
+                  className={`w-8 h-8 rounded-full bg-blue-400 opacity-50`}
+                ></div>
               </motion.div>
               <motion.div
                 className="absolute left-1/4 top-1/3 z-10"
@@ -169,7 +178,9 @@ export default function Home() {
                   delay: 1,
                 }}
               >
-                <div className={`w-4 h-4 rounded-full bg-blue-400 opacity-50`}></div>
+                <div
+                  className={`w-4 h-4 rounded-full bg-blue-400 opacity-50`}
+                ></div>
               </motion.div>
             </motion.div>
           </div>
@@ -180,7 +191,7 @@ export default function Home() {
       <section className={`py-12 bg-[${colors.backgroundLight}]`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h3
-            className={`text-2xl font-semibold text-[${colors.primary}] mb-6 text-center`}
+            className={`text-2xl font-semibold text-[#315f93] mb-6 text-center`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -211,7 +222,9 @@ export default function Home() {
                 transition={{ delay: 0.1 * index, duration: 0.5 }}
               >
                 <div className="text-4xl mb-3">{category.icon}</div>
-                <h4 className={`font-medium text-[${colors.primary}]`}>{category.name}</h4>
+                <h4 className={`font-medium text-[#315f93]`}>
+                  {category.name}
+                </h4>
               </motion.div>
             ))}
           </motion.div>
@@ -226,18 +239,22 @@ export default function Home() {
         title="Fish Collection"
         description="Explore our vibrant selection of freshwater and saltwater fish"
         bgColor="bg-white"
+        type="fish"
       />
 
       <CategorySection
         title="Bird Varieties"
         description="Discover beautiful and healthy birds for your home"
         bgColor={`bg-[${colors.backgroundLight}]`}
+        type="brid"
+
       />
 
       <CategorySection
         title="Premium Accessories"
         description="Everything your pets need for a happy and healthy life"
         bgColor="bg-white"
+        type="accessories"
       />
 
       {/* Testimonials */}
@@ -249,6 +266,5 @@ export default function Home() {
       {/* Footer */}
       <Footer />
     </div>
-  )
+  );
 }
-

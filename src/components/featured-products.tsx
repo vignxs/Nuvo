@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { colors } from "@/constants/colors"
-import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { colors } from "@/constants/colors";
+import { motion } from "framer-motion";
 
 export default function FeaturedProducts() {
   const products = [
@@ -10,31 +10,31 @@ export default function FeaturedProducts() {
       id: 1,
       name: "Tropical Fish Starter Kit",
       price: "$49.99",
-      image: "/FeaturedProducts/TropicalFishStarterKit.jpg",
+      image: "/FeaturedProducts/Kit.jpeg",
       badge: "Best Seller",
     },
     {
       id: 2,
       name: "Premium Bird Cage",
       price: "$89.99",
-      image: "/FeaturedProducts/PremiumBirdCage.jpg",
+      image: "/FeaturedProducts/Cage.jpeg",
       badge: "New",
     },
     {
       id: 3,
       name: "Aquarium Filter System",
       price: "$34.99",
-      image: "/FeaturedProducts/AquariumFilterSystem.jpg",
+      image: "/FeaturedProducts/Filter.jpeg",
       badge: null,
     },
     {
       id: 4,
       name: "Bird Food Variety Pack",
       price: "$19.99",
-      image: "/FeaturedProducts/BirdFoodVarietyPack.jpg",
+      image: "/FeaturedProducts/Food.jpeg",
       badge: "Sale",
     },
-  ]
+  ];
 
   return (
     <section className="py-16 bg-white">
@@ -46,8 +46,13 @@ export default function FeaturedProducts() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className={`text-3xl font-bold text-[${colors.primary}]`}>Featured Products</h2>
-          <Button variant="outline" className={`border-[${colors.primary}] text-[${colors.primary}]`}>
+          <h2 className={`text-3xl font-bold text-[${colors.primary}]`}>
+            Featured Products
+          </h2>
+          <Button
+            variant="outline"
+            className={`border-[${colors.primary}] text-[${colors.primary}]`}
+          >
             View All
           </Button>
         </motion.div>
@@ -61,23 +66,36 @@ export default function FeaturedProducts() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
             >
-              <motion.div whileHover={{ y: -10 }} transition={{ duration: 0.3 }}>
-                <Card className="relative overflow-hidden h-[300px] rounded-lg shadow-md group">
-                  <div className="absolute inset-0">
+              <motion.div whileHover={{ y: -10 }}>
+                <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg">
+                  <div
+                    className={`relative w-full h-64 bg-[${colors.backgroundLight}]`}
+                  >
                     <img
                       src={product.image || "/placeholder.svg"}
                       alt={product.name}
-                      className="w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-contain p-4"
                     />
+                    {product.badge && (
+                      <Badge
+                        className={`absolute top-2 right-2 bg-[${colors.primary}]`}
+                      >
+                        {product.badge}
+                      </Badge>
+                    )}
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 transition-all duration-300 ease-in-out h-[100px] group-hover:h-[70%] overflow-hidden">
-                    <div className="p-4">
-                      <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
-                      <div className="transition-all duration-300 ease-in-out max-h-[40px] group-hover:max-h-[calc(100%-40px)] overflow-hidden">
-                        <p>{product.name}</p>
-                      </div>
-                    </div>
-                  </div>
+
+                  <CardContent className="p-4">
+                    <h3 className="font-medium text-lg mb-1">{product.name}</h3>
+                    <p className={`text-[${colors.primary}] font-bold mb-3`}>
+                      {product.price}
+                    </p>
+                    <Button
+                      className={`w-full bg-[${colors.primary}] hover:bg-[${colors.primaryDark}]`}
+                    >
+                      Add to Cart
+                    </Button>
+                  </CardContent>
                 </Card>
               </motion.div>
             </motion.div>
@@ -85,5 +103,5 @@ export default function FeaturedProducts() {
         </div>
       </div>
     </section>
-  )
+  );
 }
